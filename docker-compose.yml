@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    image: test:latest
+    ports: 
+      - 4444:8081
