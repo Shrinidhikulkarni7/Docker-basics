@@ -13,7 +13,7 @@ This example just covers the basics of docker.
 Would keep on adding many things whenever i get time.
 
 
-This just covers a basic way to host a hello world program using docker. (it is extremely basic)
+This just covers a basic way to host a webpage using docker.
 For the beginners you can learn how basics of it work.
 
 And for those who already know it,i would love if you can contribute to it ( with detailed explanation to target beginners)
