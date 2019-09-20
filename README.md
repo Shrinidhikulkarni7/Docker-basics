@@ -1,7 +1,7 @@
 # Docker-basics
 
 
-This repositroy is to cover basics of building a docker image through dockerfile.
+This repository is to cover basics of building a docker image through dockerfile.
 Also this uses docker-compose.yml ( although there is no need of using that, i just wanted to show what a .yml looks like).
 
 
