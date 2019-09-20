@@ -6,6 +6,6 @@ COPY . /app/web
 
 EXPOSE 8081
 
-CMD [ "node", "helloworld.js" ]
+CMD [ "node", "index.js" ]
 
 
