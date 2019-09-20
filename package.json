@@ -19,9 +19,9 @@
   "author": "Adithya NR, Shrinidhi Kulkarni",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AdithyaBhat17/Docker-basics/issues"
+    "url": "https://github.com/Shrinidhikulkarni7/Docker-basics/issues"
   },
-  "homepage": "https://github.com/AdithyaBhat17/Docker-basics#readme",
+  "homepage": "https://github.com/Shrinidhikulkarni7/Docker-basics#readme",
   "dependencies": {
     "fs": "0.0.1-security"
   }
