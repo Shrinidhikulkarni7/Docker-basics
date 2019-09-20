@@ -1,0 +1,28 @@
+{
+  "name": "docker-basics",
+  "version": "1.0.0",
+  "description": "This repository is to cover basics of building a docker image through Dockerfile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdithyaBhat17/Docker-basics.git"
+  },
+  "keywords": [
+    "Docker",
+    "Docker",
+    "basics",
+    "node"
+  ],
+  "author": "Adithya NR, Shrinidhi Kulkarni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdithyaBhat17/Docker-basics/issues"
+  },
+  "homepage": "https://github.com/AdithyaBhat17/Docker-basics#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
+}
