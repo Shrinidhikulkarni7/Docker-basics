@@ -8,10 +8,12 @@ And for those who already know it,I would love if you can contribute to it ( wit
 
 The repository contains the following examples:
 1. Simple website using node js
-2. ASP .NET Core Web API
+2. Multi stage docker build
 
 # Simple website using node js
 All you need to do is run bash start.sh and it builds the docker image using Dockerfile and runs the docker-compose.yml file.
 This example just covers the basics of docker.
 This just covers a basic way to host a webpage using docker.
 
+# Multi stage docker build
+In this sample project, we explore multi stage docker builds by creating a to-do list web API using ASP .NET Core 3.1
