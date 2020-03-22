@@ -6,7 +6,7 @@ using TodoListWebAPI.Models;
 
 namespace TodoListWebAPI.Services
 {
-    public class TodoListService
+    public class TodoListService : ITodoListService
     {
         private readonly IList<TodoListItem> todoListItems;
 
@@ -39,7 +39,7 @@ namespace TodoListWebAPI.Services
         public void Update(Guid id, string item)
         {
             TodoListItem itemInList = todoListItems.FirstOrDefault(x => x.Id == id);
-            if(itemInList == null)
+            if (itemInList == null)
             {
                 throw new KeyNotFoundException();
             }
