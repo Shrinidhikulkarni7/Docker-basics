@@ -1,4 +1,4 @@
-# ASP .NET Core MVC To-do list Web API
+# Multi stage builds
 This is a simple web API that stores an in memory to-do list. The endpoints for this web API are as follows:
 1. GET api/TodoList - Fetch all the to do list items
 2. POST api/TodoList - Add a to do list item (the item should be sent in the POST body)
@@ -55,4 +55,4 @@ ENTRYPOINT ["dotnet", "TodoListWebAPI.dll"]
 ```
 In this stage, we copy the artifact that we published in stage 3 to "/app/publish" and set the entry point for the application. 
 
-Notice that this stage uses the base image (the one we created in stage 1) and the the build image (the one we used for stages 2 and 3). This would mean that By doing this we have ensured that out final docker image contains only the runtime and not the sdk and the source code. This will make the image lightweight. 
+Notice that this stage uses the base image (the one we created in stage 1) and not the build image (the one we used for stages 2 and 3). By doing this we have ensured that our final docker image contains only the runtime and the artifact. It does not contain the sdk and the source code making the image lightweight. 
