@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TodoListWebAPI.Models;
+using TodoListWebAPI.Services;
 
 namespace TodoListWebAPI.Controllers
 {
@@ -11,36 +13,46 @@ namespace TodoListWebAPI.Controllers
     [ApiController]
     public class TodoListController : ControllerBase
     {
+        ITodoListService todoListService;
+
+        public TodoListController(ITodoListService todoListService)
+        {
+            this.todoListService = todoListService;
+        }
+
         // GET: api/TodoList
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<TodoListItem> Get()
         {
-            return new string[] { "value1", "value2" };
+            return todoListService.Get();
         }
 
         // GET: api/TodoList/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public TodoListItem Get(string id)
         {
-            return "value";
+            return todoListService.Get(Guid.Parse(id));
         }
 
         // POST: api/TodoList
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Post([FromBody]string value)
         {
+            return todoListService.Add(value).ToString();
         }
 
         // PUT: api/TodoList/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(string id, [FromBody] string value)
         {
+            todoListService.Update(Guid.Parse(id), value);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
+            todoListService.Delete(Guid.Parse(id));
         }
     }
 }
