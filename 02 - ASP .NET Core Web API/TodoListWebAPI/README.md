@@ -1,4 +1,4 @@
-﻿# ASP .NET Core MVC To-do list Web API
+# ASP .NET Core MVC To-do list Web API
 This is a simple web API that stores an in memory to-do list. The endpoints for this web API are as follows:
 1. GET api/TodoList - Fetch all the to do list items
 2. POST api/TodoList - Add a to do list item (the item should be sent in the POST body)
@@ -13,7 +13,7 @@ This is a simple web API that stores an in memory to-do list. The endpoints for 
 
 ## What is happening inside the docker file
 This docker file makes use of a multi stage builds. As per docker hub
-> With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image.
+> With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don�t want in the final image.
 
 Let us now look at the docker file stage by stage
 
