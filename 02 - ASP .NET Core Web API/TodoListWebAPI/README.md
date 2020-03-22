@@ -1,4 +1,4 @@
-﻿# ASP .NET Core MVC To-do list Web API
+# ASP .NET Core MVC To-do list Web API
 This is a simple web API that stores an in memory to-do list. The endpoints for this web API are as follows:
 1. GET api/TodoList - Fetch all the to do list items
 2. POST api/TodoList - Add a to do list item (the item should be sent in the POST body)
@@ -13,7 +13,7 @@ This is a simple web API that stores an in memory to-do list. The endpoints for 
 
 ## What is happening inside the docker file
 This docker file makes use of a multi stage builds. As per docker hub
-> With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image.
+> With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don�t want in the final image.
 
 Let us now look at the docker file stage by stage
 
@@ -36,14 +36,15 @@ WORKDIR "/src/TodoListWebAPI"
 RUN dotnet build "TodoListWebAPI.csproj" -c Release -o /app/build
 ```
 In this stage, we pull the ASP .NET Core SDK from [here](https://hub.docker.com/_/microsoft-dotnet-core-sdk/). We set the working to "/src" and copy the csproj file from the host machine to the docker container. After the copy is complete, we run `dotnet restore` to restore the nuget packages. When the package restore is complete, we copy all the source files from the host to the container, use `dotnet build` to build a release version of the application and place the artifact in "/app/build".
-In this stage, we have have pulled the SDK, which we won't need after we publish the artifact. Notice that we only this image (i.e., build) in stage 3 and not stage 4
+
+In this stage, we have have pulled the SDK, which we won't need after we publish the artifact. Notice that we only use this image (i.e., build) in stage 3 and not stage 4
 
 ### Stage 3 - Publish
 ```docker
 FROM build AS publish
 RUN dotnet publish "TodoListWebAPI.csproj" -c Release -o /app/publish
 ```
-In this stage we publish the artifact to "/app/publish"
+In this stage we publish the artifact to "/app/publish" using `dotnet publish`
 
 ### Stage 4 - Deploy
 ```docker
@@ -52,5 +53,6 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "TodoListWebAPI.dll"]
 ```
-In this stage, we copy the artifact that we published in stage 3 to "/app/publish" and set the entry point. 
-Notice that this stage uses the base image (the one we created in stage 1) and the the build image (the one we used for stages 2 and 3). This would mean that By doing this we have ensured that out final docker image contains only the runtime and not the sdk. This will make the image lightweight. 
+In this stage, we copy the artifact that we published in stage 3 to "/app/publish" and set the entry point for the application. 
+
+Notice that this stage uses the base image (the one we created in stage 1) and the the build image (the one we used for stages 2 and 3). This would mean that By doing this we have ensured that out final docker image contains only the runtime and not the sdk and the source code. This will make the image lightweight. 
