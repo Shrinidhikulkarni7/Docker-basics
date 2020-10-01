@@ -1,0 +1,53 @@
+@tailwind base;
+
+@tailwind components;
+
+.error {
+  @apply text-center my-20 text-red-600;
+}
+
+.empty {
+  @apply text-center my-20 text-gray-600;
+}
+
+.container {
+  @apply w-10/12 mx-auto px-5;
+}
+
+.tasks {
+  @apply my-20 mx-auto w-1/2;
+}
+
+.tasks > li {
+  @apply block mx-auto my-5 list-none;
+  @apply flex justify-between;
+}
+
+.task-controls {
+  @apply inline-flex justify-evenly align-middle;
+}
+
+.task-controls > * {
+  text-decoration: none;
+}
+
+.task-controls > span:first-child {
+  cursor: pointer;
+  margin-right: 2rem;
+  @apply text-gray-400;
+}
+
+.task-controls > span:last-child {
+  cursor: pointer;
+  @apply text-red-300;
+}
+
+.new-task {
+  @apply mx-auto block w-1/2 my-10 shadow-md border rounded-sm border-gray-300 p-2;
+}
+
+.edit-task {
+  @apply mx-auto block w-1/2 my-10 shadow-md border rounded-sm border-gray-300 p-1;
+}
+
+@tailwind utilities;
