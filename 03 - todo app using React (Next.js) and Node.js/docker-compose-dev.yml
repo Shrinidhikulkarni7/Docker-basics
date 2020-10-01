@@ -1,0 +1,34 @@
+version: "3.4"
+
+services:
+  server:
+    build:
+      context: server/
+      dockerfile: Dockerfile
+    container_name: server
+    #env_file: .env
+    volumes:
+      - ./server:/app/server
+    restart: always
+    command: sh -c "yarn && yarn start"
+    ports:
+      - "8080:8080"
+    networks:
+      - web
+  client:
+    build:
+      context: client/
+      dockerfile: Dockerfile
+    container_name: client
+    volumes:
+      - ./client:/app/client
+    restart: always
+    command: sh -c "yarn && yarn dev"
+    ports:
+      - "3000:3000"
+    networks:
+      - web
+
+networks:
+  web:
+    driver: overlay
